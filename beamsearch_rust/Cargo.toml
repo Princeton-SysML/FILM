@@ -1,0 +1,29 @@
+[package]
+edition = "2021"
+name = "beamsearch_rust"
+version = "0.1.0"
+
+[profile.dev]
+debug = true
+split-debuginfo = "packed"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[profile.release]
+opt-level = 3
+
+[dependencies]
+clap = {version = "3.1.3", features = ["derive"]}
+csv = "1.1.6"
+either = "1.6.1"
+flexbuffers = "2.0.0"
+itertools = "0.10.3"
+rand = "0.8.5"
+rayon = "1.5.1"
+rmp-serde = "1.0.0"
+rust-bert = "0.17.0"
+rust_tokenizers = "7.0.1"
+serde = "1.0.136"
+serde_json = "1.0.79"
+substring = "1.4.5"
+tch = "0.6.1"
+time = "0.3.7"

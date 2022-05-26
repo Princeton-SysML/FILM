@@ -1,0 +1,11 @@
+*.out
+**/*.csv
+**/*.xlsx
+**/*.pyc
+**/*.model
+**/*.bin
+**/*.ot
+**/*.npz
+beamsearch_rust/target
+datasets
+.vscode

@@ -1,0 +1,26 @@
+name: film-nlp
+channels:
+  - defaults
+  - conda-forge
+  - pytorch
+dependencies:
+  - python=3.9
+  - mamba
+  - pytorch
+  - torchvision
+  - torchaudio
+  - cudatoolkit=11.3
+  - numpy
+  - pandas
+  - seaborn
+  - jupyterlab
+  - ca-certificates
+  - certifi
+  - openssl
+  - matplotlib
+  - nltk
+  - tqdm
+  - papermill
+  - transformers
+  - spacy
+  - tqdm
