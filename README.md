@@ -1,22 +1,19 @@
 # Recovering Private Text in Federated Learning of Language Models
 
-> Samyak Gupta*, Yangsibo Huang*, Zexuan Zhong, Tianyu Gao, Kai Li, Danqi Chen
-> *Denotes equal contribution  
+Samyak Gupta*, Yangsibo Huang*, Zexuan Zhong, Tianyu Gao, Kai Li, Danqi Chen (*: equal contribution)
 > 
 > Federated learning allows distributed users to collaboratively train a model while keeping each user's data private. Recently, a growing body of work has demonstrated that an eavesdropping attacker can effectively recover image data from gradients transmitted during federated learning. However, little progress has been made in recovering text data. In this paper, we present a novel attack method FILM for federated learning of language models -- for the first time, we show the feasibility of recovering text from large batch sizes of up to 128 sentences. Different from image-recovery methods which are optimized to match gradients, we take a distinct approach that first identifies a set of words from gradients and then directly reconstructs sentences based on beam search and a prior-based reordering strategy. The key insight of our attack is to leverage either prior knowledge in pre-trained language models or memorization during training. Despite its simplicity, we demonstrate that FILM can work well with several large-scale datasets -- it can extract single sentences with high fidelity even for large batch sizes and recover multiple sentences from the batch successfully if the attack is applied iteratively. We hope our results can motivate future work in developing stronger attacks as well as new defense methods for training language models in federated learning.  
 
 <a href="https://arxiv.org/abs/2205.08514"><img src="https://img.shields.io/badge/arXiv-2205.08514-b31b1b.svg" height=22.5></a>
 
 <p align="center">
-<img src="figures/threat_model.png" width="800px"/>  
+<img src="figures/threat_model.png" width="600px"/>  
 <br>
-llustration of the threat model and our attack FILM. FILM allows an honest-but-curious eavesdropper
-on the communication between the client and the server in federated learning to recover private text of the client.
 </p>
 
 ## Description
 
-Official implementation of our paper "Recovering Private Text in Federated Learning of Language Models", where we demonstrate a new method (FILM) in which a participant of federated learning (i.e. a curious server, a malicious client, or an observer of transmitted parameters) may leverage memorization in large language models to reconstruct private client data. We evaluate our approach on Wikitex-103 and the Enron Emails datasets.
+Official implementation of our paper [Recovering Private Text in Federated Learning of Language Models](https://arxiv.org/pdf/2205.08514.pdf), where we demonstrate a new method (FILM) in which a participant of federated learning (i.e. a curious server, a malicious client, or an observer of transmitted parameters) may leverage memorization in large language models to reconstruct private client data. We evaluate our approach on Wikitex-103 and the Enron Emails datasets.
 
 
 ## Table of Contents
