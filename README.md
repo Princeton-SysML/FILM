@@ -38,7 +38,7 @@ Official implementation of our paper "Recovering Private Text in Federated Learn
 
 To install python requirements:
 
-```setup
+```bash
 conda env create -f environment.yml
 conda activate film-nlp
 python -m spacy download en_core_web_sm
@@ -50,7 +50,7 @@ First [install Rust](https://www.rust-lang.org/tools/install)
 
 Then, run code as follows:
 
-```setup
+```bash
 cd beamsearch_rust
 cargo run --release
 ```
@@ -74,13 +74,13 @@ Data passed to `datapath` must be a json file of a specific form - see [an examp
 
 By default, beamsearch will be ran with a pretrained GPT2 model from HuggingFace. For a full list of arguments available during beamsearch, you may run the following command:
 
-```setup
+```bash
 cargo run --release -- --help
 ```
 
 To run with an existing GPT2 model, you must first convert it to a compatible form using [this tool](https://github.com/guillaume-be/rust-bert/blob/master/utils/convert_model.py). Simply save the model (e.g. using model.save_pretrained in HuggingFace), and then run `python convert_model.py pytorch_model.bin` to convert. Then you may use the generated `rust_model.ot` file during beamsearch as follows:
 
-```setup
+```bash
 cargo run --release -- --modelweights <PATH_TO_RUST_MODEL>
 ```
 
@@ -89,7 +89,7 @@ We also include a [Python frontend](run_beamsearch.py) which passes down args to
 
 We also include the code used for sentence reordering in [reorder.py](reorder.py). It can be run as follows:
 
-```
+```bash
 python reorder_single.py --bs BATCH_SIZE --alpha 1
 ```
 
@@ -113,15 +113,11 @@ larger batch sizes (see Table 7 for quantitative results). Moreover, the attack 
 ## Citation
 
 If you use this code in your research, please cite the following work:
-```
-@misc{https://doi.org/10.48550/arxiv.2205.08514,
-  doi = {10.48550/ARXIV.2205.08514},
-  url = {https://arxiv.org/abs/2205.08514},
-  author = {Gupta, Samyak and Huang, Yangsibo and Zhong, Zexuan and Gao, Tianyu and Li, Kai and Chen, Danqi},
-  keywords = {Computation and Language (cs.CL), Cryptography and Security (cs.CR), Machine Learning (cs.LG), FOS: Computer and information sciences, FOS: Computer and information sciences},
-  title = {Recovering Private Text in Federated Learning of Language Models},
-  publisher = {arXiv},
-  year = {2022},
-  copyright = {Creative Commons Zero v1.0 Universal}
+```bibtex
+@article{gupta2022recovering,
+   title={Recovering Private Text in Federated Learning of Language Models},
+   author={Gupta, Samyak and Huang, Yangsibo and Zhong, Zexuan and Gao, Tianyu and Li, Kai and Chen, Danqi},
+   boo={arXiv preprint arXiv:2205.08514},
+   year={2022}
 }
 ```
