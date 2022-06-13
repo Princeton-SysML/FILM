@@ -15,6 +15,7 @@ Samyak Gupta*, Yangsibo Huang*, Zexuan Zhong, Tianyu Gao, Kai Li, Danqi Chen (*:
 
 Official implementation of our paper [Recovering Private Text in Federated Learning of Language Models](https://arxiv.org/pdf/2205.08514.pdf), where we demonstrate a new method (FILM) in which a participant of federated learning (i.e. a curious server, a malicious client, or an observer of transmitted parameters) may leverage memorization in large language models to reconstruct private client data. We evaluate our approach on Wikitex-103 and the Enron Emails datasets.
 
+If you have any questions related to the code or the paper, feel free to email Samyak (samyakg@princeton.edu) and Yangsibo (yangsibo@princeton.edu). If you encounter any problems when using the code, or want to report a bug, you can open an issue. Please try to specify the problem with details so we can help you better and quicker!
 
 ## Table of Contents
 
