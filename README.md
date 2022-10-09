@@ -1,4 +1,4 @@
-# Recovering Private Text in Federated Learning of Language Models
+# Recovering Private Text in Federated Learning of Language Models (in NeurIPS 2022)
 
 Samyak Gupta*, Yangsibo Huang*, Zexuan Zhong, Tianyu Gao, Kai Li, Danqi Chen (*: equal contribution)
 > 
