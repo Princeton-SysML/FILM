@@ -7,6 +7,7 @@ from rouge_score import rouge_scorer
 import re
 import pandas as pd
 import tqdm
+from multiprocessing import Pool, Queue
 
 
 def namedEntityRatio(nes_ori, nes_cand):
@@ -39,19 +40,6 @@ def nerScore(original, generated, nlp):
             cost[i, j] = namedEntityRatio(o, g)
 
     return cost, named_entities_original, named_entities_candidate
-
-
-from rouge_metric import PyRouge
-
-rouge = PyRouge(
-    rouge_n=(1, 2),
-    rouge_l=True,
-    rouge_w=True,
-    rouge_w_weight=1.2,
-    rouge_s=True,
-    rouge_su=True,
-    skip_gap=4,
-)
 
 
 def rougeScores(original, generated, scorer):
@@ -203,7 +191,6 @@ def keepOnlyBestTopk(
         rows.append(group.sort_values(metric, ascending=ascending).head(1))
     return pd.concat(rows)
 
-
 def keepOnlyBestTopkUniqueSentences(
     dataframe: pd.DataFrame,
     metric="rouge_1_fmeasure",
@@ -217,13 +204,8 @@ def keepOnlyBestTopkUniqueSentences(
         group = group[group["topk"] <= topk]
         split_group = group.groupby(f"{metric}_best_idx")
         for (_, subgroup) in split_group:
-            rows.append(
-                subgroup.sort_values(f"{metric}_best_value", ascending=ascending).head(
-                    1
-                )
-            )
+            rows.append(subgroup.sort_values(f"{metric}_best_value", ascending=ascending).head(1))
     return pd.concat(rows)
-
 
 if __name__ == "__main__":
     print(calcMetrics(["The fat cat sits at home."], ["The cat"], createScorers()))
